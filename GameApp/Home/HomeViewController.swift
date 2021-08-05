@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
 
         gameTable.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifier)
         gameTable.dataSource = self
+        gameTable.delegate = self
         
         activityIndicator.startAnimating()
         gameTable.separatorStyle = .none
@@ -39,12 +40,23 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: HomeTableViewCell.identifier,
+            for: indexPath
+        ) as? HomeTableViewCell
         cell?.configure(with: games[indexPath.row])
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(170.0)
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailGameVC = DetailGameViewController(nibName: "DetailGameViewController", bundle: nil)
+        detailGameVC.id = games[indexPath.row].id
+        navigationController?.pushViewController(detailGameVC, animated: true)
     }
 }

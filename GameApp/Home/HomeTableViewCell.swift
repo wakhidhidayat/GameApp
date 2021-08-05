@@ -23,8 +23,8 @@ class HomeTableViewCell: UITableViewCell {
     
     func configure(with game: Game) {
         name.text = game.name
-        rating.text = String(game.rating)
-        released.text = game.released
+        rating.text = "\(game.rating) / 5"
+        released.text = Util.formatDate(from: game.released)
         if let posterUrl = URL(string: game.poster) {
             poster.kf.indicatorType = .activity
             poster.kf.setImage(with: posterUrl, options: [.transition(.fade(0.2))])
