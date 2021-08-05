@@ -55,6 +55,7 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let detailGameVC = DetailGameViewController(nibName: "DetailGameViewController", bundle: nil)
         detailGameVC.id = games[indexPath.row].id
         navigationController?.pushViewController(detailGameVC, animated: true)
