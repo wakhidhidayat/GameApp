@@ -11,6 +11,7 @@
 		3E45BD8D26BBF9E30054036B /* DetailGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45BD8B26BBF9E30054036B /* DetailGameViewController.swift */; };
 		3E45BD8E26BBF9E30054036B /* DetailGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E45BD8C26BBF9E30054036B /* DetailGameViewController.xib */; };
 		3E45BD9326BC07270054036B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45BD9226BC07270054036B /* Util.swift */; };
+		3E45BD9526BC0BE20054036B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45BD9426BC0BE20054036B /* ProfileViewController.swift */; };
 		3EC9AEC526BAC29D007B36FB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9AEC426BAC29D007B36FB /* .swiftlint.yml */; };
 		3EC9AEC826BAD19D007B36FB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9AEC726BAD19D007B36FB /* HomeViewController.swift */; };
 		3EC9AECB26BAD484007B36FB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9AECA26BAD484007B36FB /* Game.swift */; };
@@ -32,6 +33,7 @@
 		3E45BD8B26BBF9E30054036B /* DetailGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGameViewController.swift; sourceTree = "<group>"; };
 		3E45BD8C26BBF9E30054036B /* DetailGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailGameViewController.xib; sourceTree = "<group>"; };
 		3E45BD9226BC07270054036B /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		3E45BD9426BC0BE20054036B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3EC9AEC426BAC29D007B36FB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3EC9AEC726BAD19D007B36FB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3EC9AECA26BAD484007B36FB /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				3EC9AEC726BAD19D007B36FB /* HomeViewController.swift */,
 				3EC9AED126BAD987007B36FB /* HomeTableViewCell.swift */,
 				3EC9AED226BAD987007B36FB /* HomeTableViewCell.xib */,
+				3E45BD9426BC0BE20054036B /* ProfileViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				3EC9AED326BAD987007B36FB /* HomeTableViewCell.swift in Sources */,
 				3EC9AECE26BAD796007B36FB /* Constant.swift in Sources */,
 				3E45BD8D26BBF9E30054036B /* DetailGameViewController.swift in Sources */,
+				3E45BD9526BC0BE20054036B /* ProfileViewController.swift in Sources */,
 				3EC9AEC826BAD19D007B36FB /* HomeViewController.swift in Sources */,
 				3E45BD9326BC07270054036B /* Util.swift in Sources */,
 				3EC9AED026BAD81C007B36FB /* ApiManager.swift in Sources */,
