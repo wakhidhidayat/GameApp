@@ -25,9 +25,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dth-Rh-OX1">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dth-Rh-OX1">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jBs-KX-XLi">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="486"/>
@@ -114,7 +113,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovh-lV-NEh">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovh-lV-NEh">
                                     <rect key="frame" x="20" y="459" width="374" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <nil key="textColor"/>
@@ -158,6 +157,12 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Dth-Rh-OX1" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="BwW-eo-YDG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Dth-Rh-OX1" secondAttribute="bottom" id="ae0-kG-Slp"/>
+                <constraint firstItem="Dth-Rh-OX1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="kPC-P9-zc5"/>
+                <constraint firstItem="Dth-Rh-OX1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="r2n-ew-Zmi"/>
+            </constraints>
             <point key="canvasLocation" x="-304" y="-226"/>
         </view>
     </objects>
