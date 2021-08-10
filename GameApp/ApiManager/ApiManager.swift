@@ -11,10 +11,10 @@ import Alamofire
 class ApiManager {
     static let sharedInstance = ApiManager()
     
-    let params = ["key": apiKey]
+    var params = ["key": Constant.apiKey]
     
     func fetchListGames(completionHandler: @escaping (GameResult) -> Void) {
-        AF.request(listGamesUrl, method: .get, parameters: params)
+        AF.request(Constant.listGamesUrl, method: .get, parameters: params)
             .responseDecodable(of: GameResult.self) { response in
                 debugPrint(response)
                 switch response.result {
@@ -27,7 +27,7 @@ class ApiManager {
     }
     
     func fetchDetailGame(gameId: Int, completionHandler: @escaping (DetailGame) -> Void) {
-        AF.request(listGamesUrl + "/\(gameId)", method: .get, parameters: params)
+        AF.request(Constant.listGamesUrl + "/\(gameId)", method: .get, parameters: params)
             .responseDecodable(of: DetailGame.self) { response in
                 debugPrint(response)
                 switch response.result {
@@ -37,5 +37,19 @@ class ApiManager {
                     debugPrint(error.localizedDescription)
                 }
             }
+    }
+    
+    func searchGames(query: String, completionHandler: @escaping (GameResult) -> Void) {
+        params["search"] = query
+        AF.request(Constant.listGamesUrl, method: .get, parameters: params)
+            .responseDecodable(of: GameResult.self) { response in
+                debugPrint(response)
+                switch response.result {
+                case .success(let data):
+                    completionHandler(data)
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+                }
+        }
     }
 }
