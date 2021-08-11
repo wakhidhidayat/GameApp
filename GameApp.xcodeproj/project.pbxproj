@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E16C35126C29E72001AFB36 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E16C35026C29E72001AFB36 /* FavoritesViewController.swift */; };
 		3E372FCE26BCA3F0004167AA /* RAWG-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E372FCD26BCA3F0004167AA /* RAWG-Info.plist */; };
 		3E372FD026BCA6E1004167AA /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E372FCF26BCA6E1004167AA /* String+Extension.swift */; };
 		3E372FD226BCA6FF004167AA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E372FD126BCA6FF004167AA /* Date+Extension.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		0F32FC31F298019EA6DA0E99 /* Pods_GameApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GameApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E16C35026C29E72001AFB36 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		3E372FCD26BCA3F0004167AA /* RAWG-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RAWG-Info.plist"; sourceTree = "<group>"; };
 		3E372FCF26BCA6E1004167AA /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		3E372FD126BCA6FF004167AA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -79,6 +81,14 @@
 				3E372FD126BCA6FF004167AA /* Date+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E16C34F26C29E57001AFB36 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				3E16C35026C29E72001AFB36 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		3E45BD8426BB6E260054036B /* Detail */ = {
@@ -157,6 +167,7 @@
 		3EF5412326BABCA000080D3C /* GameApp */ = {
 			isa = PBXGroup;
 			children = (
+				3E16C34F26C29E57001AFB36 /* Favorites */,
 				3E16C34A26C26257001AFB36 /* Extensions */,
 				3E65AF7626C2372800CA67C4 /* Search */,
 				3E45BD8F26BC06ED0054036B /* Utils */,
@@ -367,6 +378,7 @@
 				3EC9AEC826BAD19D007B36FB /* HomeViewController.swift in Sources */,
 				3E45BD9326BC07270054036B /* Util.swift in Sources */,
 				3EC9AED026BAD81C007B36FB /* ApiManager.swift in Sources */,
+				3E16C35126C29E72001AFB36 /* FavoritesViewController.swift in Sources */,
 				3EC9AECB26BAD484007B36FB /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

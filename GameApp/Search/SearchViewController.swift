@@ -56,14 +56,15 @@ extension SearchViewController: UISearchBarDelegate {
             gamesTable.reloadData()
         } else {
             games.removeAll()
-            activityIndicator.startAnimating()
             query = searchText
-            print("searching for \(query)")
+            activityIndicator.startAnimating()
             ApiManager.sharedInstance.searchGames(query: query) { games in
                 self.games.append(contentsOf: games.results)
-                self.gamesTable.separatorStyle = .singleLine
-                self.gamesTable.reloadData()
-                self.activityIndicator.stopAnimating()
+                DispatchQueue.main.async {
+                    self.gamesTable.separatorStyle = .singleLine
+                    self.gamesTable.reloadData()
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
     }
