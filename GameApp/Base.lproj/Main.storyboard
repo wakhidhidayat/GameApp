@@ -183,7 +183,7 @@
         <scene sceneID="az0-0j-xAl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5nB-Qf-05h" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Games" image="gamecontroller.fill" catalog="system" id="LnZ-Q5-7Rg"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="gamecontroller" catalog="system" id="LnZ-Q5-7Rg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="9GV-pN-fJ7">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -293,11 +293,11 @@
             </objects>
             <point key="canvasLocation" x="1958" y="560"/>
         </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="xJC-ZU-4qN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GWX-eW-u8m" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="KoQ-SR-Tbi"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="suit.heart" catalog="system" id="KoQ-SR-Tbi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Xqq-bj-19S">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -315,9 +315,10 @@
     </scenes>
     <resources>
         <image name="avatar" width="1579" height="1633"/>
-        <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
+        <image name="gamecontroller" catalog="system" width="128" height="80"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="suit.heart" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

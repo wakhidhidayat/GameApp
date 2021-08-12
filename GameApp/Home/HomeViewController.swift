@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var games = [Game]()
+    private lazy var favoriteProvider: FavoriteProvider = { return FavoriteProvider() }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,7 @@ extension HomeViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let detailGameVC = DetailGameViewController(nibName: "DetailGameViewController", bundle: nil)
         detailGameVC.id = games[indexPath.row].id
+        detailGameVC.isInFavorites = favoriteProvider.checkDataExistence(games[indexPath.row].id)
         navigationController?.pushViewController(detailGameVC, animated: true)
     }
 }

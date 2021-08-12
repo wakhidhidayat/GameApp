@@ -39,4 +39,11 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    func configureFavorite(with favorite: Favorite) {
+        poster.image = UIImage(data: favorite.poster!)
+        name.text = favorite.name
+        released.text = favorite.released
+        rating.text = favorite.rating
+    }
+    
 }

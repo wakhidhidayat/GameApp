@@ -11,9 +11,37 @@ class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var favoriteTable: UITableView!
     
+    private lazy var favoriteProvider: FavoriteProvider = { return FavoriteProvider() }()
+    private
+    var favorites = [Favorite]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        favoriteTable.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifier)
+        favoriteTable.dataSource = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        favoriteProvider.getFavorites { favorites in
+            DispatchQueue.main.async {
+                self.favorites = favorites
+                self.favoriteTable.reloadData()
+            }
+        }
+    }
+}
 
+extension FavoritesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favorites.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier) as? HomeTableViewCell
+        cell?.configureFavorite(with: favorites[indexPath.row])
+        return cell ?? UITableViewCell()
+    }
 }
