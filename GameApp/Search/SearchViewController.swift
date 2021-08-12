@@ -13,8 +13,9 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var gamesTable: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    var games = [Game]()
-    var query = ""
+    private var games = [Game]()
+    private var query = ""
+    private lazy var favoriteProvider: FavoriteProvider = { return FavoriteProvider() }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,13 @@ extension SearchViewController: UITableViewDataSource {
 }
 
 extension SearchViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailGameVC = DetailGameViewController(nibName: "DetailGameViewController", bundle: nil)
+        detailGameVC.id = games[indexPath.row].id
+        detailGameVC.isInFavorites = favoriteProvider.checkDataExistence(games[indexPath.row].id)
+        navigationController?.pushViewController(detailGameVC, animated: true)
+    }
 }
 
 extension SearchViewController: UISearchBarDelegate {

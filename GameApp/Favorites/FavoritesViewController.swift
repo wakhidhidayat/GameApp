@@ -12,14 +12,14 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var favoriteTable: UITableView!
     
     private lazy var favoriteProvider: FavoriteProvider = { return FavoriteProvider() }()
-    private
-    var favorites = [Favorite]()
+    private var favorites = [Favorite]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         favoriteTable.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifier)
         favoriteTable.dataSource = self
+        favoriteTable.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,5 +43,15 @@ extension FavoritesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier) as? HomeTableViewCell
         cell?.configureFavorite(with: favorites[indexPath.row])
         return cell ?? UITableViewCell()
+    }
+}
+
+extension FavoritesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailGameVC = DetailGameViewController(nibName: "DetailGameViewController", bundle: nil)
+        detailGameVC.id = favorites[indexPath.row].id
+        detailGameVC.isInFavorites = true
+        navigationController?.pushViewController(detailGameVC, animated: true)
     }
 }
