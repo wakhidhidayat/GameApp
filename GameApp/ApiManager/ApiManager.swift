@@ -52,4 +52,17 @@ class ApiManager {
                 }
         }
     }
+    
+    func fetchScreenshots(gameId: Int, completionHandler: @escaping (ScreenshotResult) -> Void) {
+        AF.request(Constant.listGamesUrl + "/\(gameId)/screenshots", method: .get, parameters: params)
+            .responseDecodable(of: ScreenshotResult.self) { response in
+                debugPrint(response)
+                switch response.result {
+                case .success(let data):
+                    completionHandler(data)
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+                }
+            }
+    }
 }

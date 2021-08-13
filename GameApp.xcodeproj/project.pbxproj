@@ -19,6 +19,10 @@
 		3E45BD8E26BBF9E30054036B /* DetailGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E45BD8C26BBF9E30054036B /* DetailGameViewController.xib */; };
 		3E45BD9326BC07270054036B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45BD9226BC07270054036B /* Util.swift */; };
 		3E45BD9526BC0BE20054036B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E45BD9426BC0BE20054036B /* ProfileViewController.swift */; };
+		3E4ECEAF26C5F8D300F299FF /* ScreenshotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4ECEAD26C5F8D300F299FF /* ScreenshotTableViewCell.swift */; };
+		3E4ECEB026C5F8D300F299FF /* ScreenshotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4ECEAE26C5F8D300F299FF /* ScreenshotTableViewCell.xib */; };
+		3E4ECEB526C5FBC200F299FF /* ScreenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4ECEB326C5FBC200F299FF /* ScreenshotCollectionViewCell.swift */; };
+		3E4ECEB626C5FBC200F299FF /* ScreenshotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4ECEB426C5FBC200F299FF /* ScreenshotCollectionViewCell.xib */; };
 		3E65AF7826C2373C00CA67C4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E65AF7726C2373C00CA67C4 /* SearchViewController.swift */; };
 		3EC9AEC526BAC29D007B36FB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9AEC426BAC29D007B36FB /* .swiftlint.yml */; };
 		3EC9AEC826BAD19D007B36FB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9AEC726BAD19D007B36FB /* HomeViewController.swift */; };
@@ -49,6 +53,10 @@
 		3E45BD8C26BBF9E30054036B /* DetailGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailGameViewController.xib; sourceTree = "<group>"; };
 		3E45BD9226BC07270054036B /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		3E45BD9426BC0BE20054036B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3E4ECEAD26C5F8D300F299FF /* ScreenshotTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotTableViewCell.swift; sourceTree = "<group>"; };
+		3E4ECEAE26C5F8D300F299FF /* ScreenshotTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenshotTableViewCell.xib; sourceTree = "<group>"; };
+		3E4ECEB326C5FBC200F299FF /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
+		3E4ECEB426C5FBC200F299FF /* ScreenshotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenshotCollectionViewCell.xib; sourceTree = "<group>"; };
 		3E65AF7726C2373C00CA67C4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3EC9AEC426BAC29D007B36FB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3EC9AEC726BAD19D007B36FB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +109,7 @@
 		3E45BD8426BB6E260054036B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				3E4ECEAA26C5F76F00F299FF /* Screenshots */,
 				3E45BD8B26BBF9E30054036B /* DetailGameViewController.swift */,
 				3E45BD8C26BBF9E30054036B /* DetailGameViewController.xib */,
 			);
@@ -113,6 +122,17 @@
 				3E45BD9226BC07270054036B /* Util.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3E4ECEAA26C5F76F00F299FF /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				3E4ECEAD26C5F8D300F299FF /* ScreenshotTableViewCell.swift */,
+				3E4ECEAE26C5F8D300F299FF /* ScreenshotTableViewCell.xib */,
+				3E4ECEB326C5FBC200F299FF /* ScreenshotCollectionViewCell.swift */,
+				3E4ECEB426C5FBC200F299FF /* ScreenshotCollectionViewCell.xib */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 		3E65AF7626C2372800CA67C4 /* Search */ = {
@@ -283,9 +303,11 @@
 			files = (
 				3EC9AEC526BAC29D007B36FB /* .swiftlint.yml in Resources */,
 				3EF5413126BABCA300080D3C /* LaunchScreen.storyboard in Resources */,
+				3E4ECEB626C5FBC200F299FF /* ScreenshotCollectionViewCell.xib in Resources */,
 				3EF5412E26BABCA300080D3C /* Assets.xcassets in Resources */,
 				3E40C0D626C542F000094E6D /* RAWG-Info.plist in Resources */,
 				3EC9AED426BAD987007B36FB /* HomeTableViewCell.xib in Resources */,
+				3E4ECEB026C5F8D300F299FF /* ScreenshotTableViewCell.xib in Resources */,
 				3EF5412C26BABCA000080D3C /* Main.storyboard in Resources */,
 				3E45BD8E26BBF9E30054036B /* DetailGameViewController.xib in Resources */,
 			);
@@ -387,6 +409,8 @@
 				3E45BD9526BC0BE20054036B /* ProfileViewController.swift in Sources */,
 				3EC9AEC826BAD19D007B36FB /* HomeViewController.swift in Sources */,
 				3E40C0CF26C4A06C00094E6D /* Favorite.swift in Sources */,
+				3E4ECEAF26C5F8D300F299FF /* ScreenshotTableViewCell.swift in Sources */,
+				3E4ECEB526C5FBC200F299FF /* ScreenshotCollectionViewCell.swift in Sources */,
 				3E45BD9326BC07270054036B /* Util.swift in Sources */,
 				3E40C0D126C4A41E00094E6D /* FavoriteProvider.swift in Sources */,
 				3EC9AED026BAD81C007B36FB /* ApiManager.swift in Sources */,

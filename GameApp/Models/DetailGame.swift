@@ -26,3 +26,11 @@ struct DetailGame: Codable {
         case description
     }
 }
+
+struct ScreenshotResult: Codable {
+    let results: [Screenshot]
+}
+
+struct Screenshot: Codable {
+    let image: String
+}

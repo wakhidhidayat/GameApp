@@ -16,15 +16,24 @@ class DetailGameViewController: UIViewController {
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var screenshotTable: UITableView!
     
     var id: Int?
     private var game: DetailGame?
     private lazy var favoriteProvider: FavoriteProvider = { return FavoriteProvider() }()
     var isInFavorites = false
+    private var screenshots = [Screenshot]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        screenshotTable.register(
+            ScreenshotTableViewCell.nib(),
+            forCellReuseIdentifier: ScreenshotTableViewCell.identifier
+        )
+        screenshotTable.dataSource = self
+        screenshotTable.delegate = self
+        
         let addToFavoritesButton = UIBarButtonItem(
             image: UIImage(systemName: "suit.heart"), style: .plain, target: self, action: #selector(addToFavorites))
         let removeFromFavoritesButton = UIBarButtonItem(
@@ -38,13 +47,25 @@ class DetailGameViewController: UIViewController {
         }
         
         if let gameId = id {
+            var isDoneFetchDetail = false
+            var isDoneFetchSs = false
             activityIndicator.startAnimating()
             ApiManager.sharedInstance.fetchDetailGame(gameId: gameId) { [weak self] game in
                 self?.game = game
                 if self?.game != nil {
                     self?.updateUI()
+                    isDoneFetchDetail = true
                 }
-                self?.activityIndicator.stopAnimating()
+            }
+            
+            ApiManager.sharedInstance.fetchScreenshots(gameId: gameId) { [weak self] screenshots in
+                self?.screenshots = screenshots.results
+                self?.screenshotTable.reloadData()
+                isDoneFetchSs = true
+            }
+            
+            if isDoneFetchDetail && isDoneFetchSs {
+                activityIndicator.stopAnimating()
             }
         }
     }
@@ -131,4 +152,25 @@ class DetailGameViewController: UIViewController {
         }
     }
     
+}
+
+extension DetailGameViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: ScreenshotTableViewCell.identifier,
+            for: indexPath
+        ) as? ScreenshotTableViewCell
+        cell?.configure(with: screenshots)
+        return cell ?? UITableViewCell()
+    }
+}
+
+extension DetailGameViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(150.0)
+    }
 }
