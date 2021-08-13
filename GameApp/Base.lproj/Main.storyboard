@@ -161,7 +161,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="XHx-aT-HkC">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="PLT-mZ-qXD" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="PLT-mZ-qXD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Njp-Ou-Xjl"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JDE-5b-Wtr">

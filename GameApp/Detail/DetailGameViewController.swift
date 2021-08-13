@@ -92,14 +92,22 @@ class DetailGameViewController: UIViewController {
             return
         }
         
+        guard let backgroundData = try? Data(contentsOf: URL(string: game.backgroundImage)!) else {
+            return
+        }
+        
+        guard let posterData = try? Data(contentsOf: URL(string: game.poster)!) else {
+            return
+        }
+        
         favoriteProvider.createFavorite(
             game.id,
-            name.text ?? "",
-            (backgroundImage.image?.jpegData(compressionQuality: 0.0))!,
-            (poster.image?.jpegData(compressionQuality: 0.0)!)!,
-            desc.text ?? "",
-            released.text ?? "",
-            rating.text ?? ""
+            game.name,
+            backgroundData,
+            posterData,
+            game.description,
+            game.released,
+            "\(game.rating) / 5"
         ) {
             
             DispatchQueue.main.async {
