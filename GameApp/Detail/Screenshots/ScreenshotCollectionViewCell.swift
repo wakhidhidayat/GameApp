@@ -8,7 +8,7 @@
 import UIKit
 
 class ScreenshotCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var gameImage: UIImageView!
     
     static let identifier = "ScreenshotCollectionViewCell"

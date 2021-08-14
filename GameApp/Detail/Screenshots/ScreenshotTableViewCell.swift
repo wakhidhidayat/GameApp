@@ -8,11 +8,11 @@
 import UIKit
 
 class ScreenshotTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var screenshotCollection: UICollectionView!
     
     static let identifier = "ScreenshotTableViewCell"
-    var screenshots = [Screenshot]()
+    private var screenshots = [Screenshot]()
     
     override func awakeFromNib() {
         super.awakeFromNib()

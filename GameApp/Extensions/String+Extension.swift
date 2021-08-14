@@ -11,11 +11,11 @@ extension String {
     func convertDateString() -> Date? {
         return convert(dateString: self, fromDateFormat: "yyyy-MM-dd", toDateFormat: "dd-MM-yyyy")
     }
-
+    
     func convert(dateString: String, fromDateFormat: String, toDateFormat: String) -> Date? {
         let fromDateFormatter = DateFormatter()
         fromDateFormatter.dateFormat = fromDateFormat
-
+        
         if let fromDateObject = fromDateFormatter.date(from: dateString) {
             let toDateFormatter = DateFormatter()
             toDateFormatter.dateFormat = toDateFormat

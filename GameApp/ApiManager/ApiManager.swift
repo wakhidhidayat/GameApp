@@ -23,7 +23,7 @@ class ApiManager {
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
                 }
-        }
+            }
     }
     
     func fetchDetailGame(gameId: Int, completionHandler: @escaping (DetailGame) -> Void) {
@@ -50,7 +50,7 @@ class ApiManager {
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
                 }
-        }
+            }
     }
     
     func fetchScreenshots(gameId: Int, completionHandler: @escaping (ScreenshotResult) -> Void) {

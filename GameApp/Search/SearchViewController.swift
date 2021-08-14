@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var gamesTable: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -19,14 +19,14 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         gamesTable.separatorStyle = .none
         gamesTable.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifier)
         gamesTable.dataSource = self
         gamesTable.delegate = self
         searchBar.delegate = self
     }
-
+    
 }
 
 extension SearchViewController: UITableViewDataSource {

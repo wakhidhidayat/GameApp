@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailGameViewController: UIViewController {
-
+    
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -26,7 +26,7 @@ class DetailGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         screenshotTable.register(
             ScreenshotTableViewCell.nib(),
             forCellReuseIdentifier: ScreenshotTableViewCell.identifier

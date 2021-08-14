@@ -8,7 +8,7 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
-
+    
     @IBOutlet weak var favoriteTable: UITableView!
     
     private lazy var favoriteProvider: FavoriteProvider = { return FavoriteProvider() }()

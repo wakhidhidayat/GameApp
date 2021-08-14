@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class HomeTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var released: UILabel!

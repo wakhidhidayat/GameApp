@@ -117,7 +117,7 @@ class FavoriteProvider {
             batchDeleteRequest.resultType = .resultTypeCount
             if let batchDeleteResult =
                 try? taskContext.execute(batchDeleteRequest) as? NSBatchDeleteResult,
-                batchDeleteResult.result != nil {
+               batchDeleteResult.result != nil {
                 completion()
             }
         }

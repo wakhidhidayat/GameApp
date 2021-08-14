@@ -24,6 +24,8 @@
 		3E4ECEB526C5FBC200F299FF /* ScreenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4ECEB326C5FBC200F299FF /* ScreenshotCollectionViewCell.swift */; };
 		3E4ECEB626C5FBC200F299FF /* ScreenshotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4ECEB426C5FBC200F299FF /* ScreenshotCollectionViewCell.xib */; };
 		3E4ECEB826C65A0600F299FF /* Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4ECEB726C65A0600F299FF /* Screenshot.swift */; };
+		3E4ECEBA26C6D15800F299FF /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4ECEB926C6D15800F299FF /* UpdateProfileViewController.swift */; };
+		3E4ECEBC26C6D21400F299FF /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4ECEBB26C6D21400F299FF /* Profile.swift */; };
 		3E65AF7826C2373C00CA67C4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E65AF7726C2373C00CA67C4 /* SearchViewController.swift */; };
 		3EC9AEC526BAC29D007B36FB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 3EC9AEC426BAC29D007B36FB /* .swiftlint.yml */; };
 		3EC9AEC826BAD19D007B36FB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9AEC726BAD19D007B36FB /* HomeViewController.swift */; };
@@ -59,6 +61,8 @@
 		3E4ECEB326C5FBC200F299FF /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
 		3E4ECEB426C5FBC200F299FF /* ScreenshotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenshotCollectionViewCell.xib; sourceTree = "<group>"; };
 		3E4ECEB726C65A0600F299FF /* Screenshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screenshot.swift; sourceTree = "<group>"; };
+		3E4ECEB926C6D15800F299FF /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
+		3E4ECEBB26C6D21400F299FF /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		3E65AF7726C2373C00CA67C4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3EC9AEC426BAC29D007B36FB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		3EC9AEC726BAD19D007B36FB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -151,7 +155,6 @@
 				3EC9AEC726BAD19D007B36FB /* HomeViewController.swift */,
 				3EC9AED126BAD987007B36FB /* HomeTableViewCell.swift */,
 				3EC9AED226BAD987007B36FB /* HomeTableViewCell.xib */,
-				3E45BD9426BC0BE20054036B /* ProfileViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				3E40C0CE26C4A06C00094E6D /* Favorite.swift */,
 				3E40C0D226C4A87600094E6D /* GameApp.xcdatamodeld */,
 				3E4ECEB726C65A0600F299FF /* Screenshot.swift */,
+				3E4ECEBB26C6D21400F299FF /* Profile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,6 +179,15 @@
 				3EC9AECF26BAD81C007B36FB /* ApiManager.swift */,
 			);
 			path = ApiManager;
+			sourceTree = "<group>";
+		};
+		3EF0A3CF26C79108006FEB25 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3E45BD9426BC0BE20054036B /* ProfileViewController.swift */,
+				3E4ECEB926C6D15800F299FF /* UpdateProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		3EF5411826BABCA000080D3C = {
@@ -199,6 +212,7 @@
 		3EF5412326BABCA000080D3C /* GameApp */ = {
 			isa = PBXGroup;
 			children = (
+				3EF0A3CF26C79108006FEB25 /* Profile */,
 				3E16C34F26C29E57001AFB36 /* Favorites */,
 				3E16C34A26C26257001AFB36 /* Extensions */,
 				3E65AF7626C2372800CA67C4 /* Search */,
@@ -402,6 +416,8 @@
 				3E45BD8326BB6BC30054036B /* DetailGame.swift in Sources */,
 				3EF5412526BABCA000080D3C /* AppDelegate.swift in Sources */,
 				3E372FD226BCA6FF004167AA /* Date+Extension.swift in Sources */,
+				3E4ECEBC26C6D21400F299FF /* Profile.swift in Sources */,
+				3E4ECEBA26C6D15800F299FF /* UpdateProfileViewController.swift in Sources */,
 				3EF5412726BABCA000080D3C /* SceneDelegate.swift in Sources */,
 				3E4ECEB826C65A0600F299FF /* Screenshot.swift in Sources */,
 				3EC9AED326BAD987007B36FB /* HomeTableViewCell.swift in Sources */,
