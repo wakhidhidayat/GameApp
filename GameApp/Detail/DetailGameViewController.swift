@@ -143,7 +143,7 @@ class DetailGameViewController: UIViewController {
     }
     
     @objc private func removeFromFavorites() {
-        guard let id = game?.id else { return }
+        guard let id = id else { return }
         favoriteProvider.deleteFavorite(id) {
             DispatchQueue.main.async {
                 self.isInFavorites.toggle()
