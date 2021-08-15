@@ -10,6 +10,7 @@ import UIKit
 class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var favoriteTable: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private lazy var favoriteProvider: FavoriteProvider = { return FavoriteProvider() }()
     private var favorites = [Favorite]()
@@ -25,10 +26,13 @@ class FavoritesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        activityIndicator.startAnimating()
         favoriteProvider.getFavorites { favorites in
             DispatchQueue.main.async {
                 self.favorites = favorites
                 self.favoriteTable.reloadData()
+                self.favoriteTable.separatorStyle = .singleLine
+                self.activityIndicator.stopAnimating()
             }
         }
     }

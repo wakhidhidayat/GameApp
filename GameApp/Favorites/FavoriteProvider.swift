@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class FavoriteProvider {
-    lazy var persistentContainer: NSPersistentContainer = {
+    private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "GameApp")
         
         container.loadPersistentStores { _, error in
@@ -85,6 +85,31 @@ class FavoriteProvider {
                     favorites.append(favorite)
                 }
                 completion(favorites)
+            } catch let error as NSError {
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        }
+    }
+    
+    func getFavorite(_ id: Int, completion: @escaping(_ favorite: Favorite) -> Void) {
+        let taskContext = newTaskContext()
+        taskContext.perform {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Favorites")
+            fetchRequest.fetchLimit = 1
+            fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+            do {
+                if let result = try taskContext.fetch(fetchRequest).first {
+                    let favorite = Favorite(
+                        id: result.value(forKey: "id") as? Int,
+                        name: result.value(forKey: "name") as? String,
+                        released: result.value(forKey: "released") as? String,
+                        poster: result.value(forKey: "poster") as? Data,
+                        rating: result.value(forKey: "rating") as? String,
+                        backgroundImage: result.value(forKey: "backgroundImage") as? Data,
+                        description: result.value(forKey: "overview") as? String
+                    )
+                    completion(favorite)
+                }
             } catch let error as NSError {
                 print("Could not fetch. \(error), \(error.userInfo)")
             }

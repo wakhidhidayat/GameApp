@@ -47,25 +47,38 @@ class DetailGameViewController: UIViewController {
         }
         
         if let gameId = id {
-            var isDoneFetchDetail = false
-            var isDoneFetchSs = false
-            activityIndicator.startAnimating()
-            ApiManager.sharedInstance.fetchDetailGame(gameId: gameId) { [weak self] game in
-                self?.game = game
-                if self?.game != nil {
-                    self?.updateUI()
-                    isDoneFetchDetail = true
+            if isInFavorites {
+                activityIndicator.startAnimating()
+                favoriteProvider.getFavorite(gameId) { [weak self] result in
+                    DispatchQueue.main.async {
+                        self?.poster.image = UIImage(data: result.poster!)
+                        self?.backgroundImage.image = UIImage(data: result.backgroundImage!)
+                        self?.name.text = result.name
+                        self?.rating.text = result.rating
+                        self?.released.text = result.released
+                        self?.desc.text = result.description
+                    }
+                    
+                    ApiManager.sharedInstance.fetchScreenshots(gameId: gameId) { [weak self] screenshots in
+                        self?.screenshots = screenshots.results
+                        self?.screenshotTable.reloadData()
+                        self?.activityIndicator.stopAnimating()
+                    }
                 }
-            }
-            
-            ApiManager.sharedInstance.fetchScreenshots(gameId: gameId) { [weak self] screenshots in
-                self?.screenshots = screenshots.results
-                self?.screenshotTable.reloadData()
-                isDoneFetchSs = true
-            }
-            
-            if isDoneFetchDetail && isDoneFetchSs {
-                activityIndicator.stopAnimating()
+            } else {
+                activityIndicator.startAnimating()
+                ApiManager.sharedInstance.fetchDetailGame(gameId: gameId) { [weak self] game in
+                    self?.game = game
+                    if self?.game != nil {
+                        self?.updateUI()
+                        self?.activityIndicator.stopAnimating()
+                    }
+                }
+                
+                ApiManager.sharedInstance.fetchScreenshots(gameId: gameId) { [weak self] screenshots in
+                    self?.screenshots = screenshots.results
+                    self?.screenshotTable.reloadData()
+                }
             }
         }
     }
@@ -105,8 +118,8 @@ class DetailGameViewController: UIViewController {
             game.name,
             backgroundData,
             posterData,
-            game.description,
-            game.released,
+            Util.removeHTMLTags(in: game.description)!,
+            Util.formatDate(from: game.released)!,
             "\(game.rating) / 5"
         ) {
             

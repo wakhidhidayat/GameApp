@@ -26,7 +26,6 @@ class SearchViewController: UIViewController {
         gamesTable.delegate = self
         searchBar.delegate = self
     }
-    
 }
 
 extension SearchViewController: UITableViewDataSource {

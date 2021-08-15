@@ -364,6 +364,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ioG-rA-RMp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="obP-N1-Ajg" firstAttribute="centerX" secondItem="4Ja-hE-GcM" secondAttribute="centerX" id="00b-lO-Zfc"/>
                             <constraint firstItem="obP-N1-Ajg" firstAttribute="centerY" secondItem="4Ja-hE-GcM" secondAttribute="centerY" id="0YY-cT-u9p"/>
@@ -395,10 +396,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ApM-IJ-iTP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ApM-IJ-iTP">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="pb3-3s-orK">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1p0-KN-jR1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -407,10 +411,13 @@
                             <constraint firstItem="ApM-IJ-iTP" firstAttribute="trailing" secondItem="1p0-KN-jR1" secondAttribute="trailing" id="RZ4-pl-wad"/>
                             <constraint firstItem="ApM-IJ-iTP" firstAttribute="top" secondItem="1p0-KN-jR1" secondAttribute="top" id="krU-sy-Y23"/>
                             <constraint firstItem="ApM-IJ-iTP" firstAttribute="bottom" secondItem="1p0-KN-jR1" secondAttribute="bottom" id="lfE-Jw-KGv"/>
+                            <constraint firstItem="pb3-3s-orK" firstAttribute="centerY" secondItem="VvP-lg-OIl" secondAttribute="centerY" id="sjN-VX-0ww"/>
+                            <constraint firstItem="pb3-3s-orK" firstAttribute="centerX" secondItem="VvP-lg-OIl" secondAttribute="centerX" id="win-40-XiP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="Xsz-L3-EXd"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="pb3-3s-orK" id="X8V-bI-WGO"/>
                         <outlet property="favoriteTable" destination="ApM-IJ-iTP" id="1Ni-se-zOC"/>
                     </connections>
                 </viewController>
