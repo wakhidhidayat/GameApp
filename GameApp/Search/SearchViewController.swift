@@ -6,16 +6,20 @@
 //
 
 import UIKit
+import Combine
 
 class SearchViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var gamesTable: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var notFoundLabel: UILabel!
     
     private var games = [Game]()
-    private var query = ""
     private lazy var favoriteProvider: FavoriteProvider = { return FavoriteProvider() }()
+    
+    @Published private var queryText = ""
+    private var cancelables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,35 @@ class SearchViewController: UIViewController {
         gamesTable.dataSource = self
         gamesTable.delegate = self
         searchBar.delegate = self
+        
+        $queryText
+            .debounce(for: 0.6, scheduler: DispatchQueue.main)
+            .sink(receiveValue: handleSearch(searchText:))
+            .store(in: &cancelables)
+    }
+    
+    private func handleSearch(searchText: String) {
+        games.removeAll()
+        
+        guard !searchText.isEmpty else {
+            activityIndicator.stopAnimating()
+            gamesTable.reloadData()
+            return
+        }
+        
+        activityIndicator.startAnimating()
+        ApiManager.sharedInstance.searchGames(query: searchText) { [weak self] games in
+            self?.games = games.results
+            DispatchQueue.main.async {
+                self?.gamesTable.reloadData()
+                self?.activityIndicator.stopAnimating()
+                if games.results.isEmpty {
+                    self?.notFoundLabel.isHidden = false
+                } else {
+                    self?.notFoundLabel.isHidden = true
+                }
+            }
+        }
     }
 }
 
@@ -55,23 +88,6 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
-            games.removeAll()
-            gamesTable.separatorStyle = .none
-            activityIndicator.stopAnimating()
-            gamesTable.reloadData()
-        } else {
-            games.removeAll()
-            query = searchText
-            activityIndicator.startAnimating()
-            ApiManager.sharedInstance.searchGames(query: query) { games in
-                self.games.append(contentsOf: games.results)
-                DispatchQueue.main.async {
-                    self.gamesTable.separatorStyle = .singleLine
-                    self.gamesTable.reloadData()
-                    self.activityIndicator.stopAnimating()
-                }
-            }
-        }
+        queryText = searchText
     }
 }

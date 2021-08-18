@@ -49,6 +49,10 @@ class UpdateProfileViewController: UIViewController {
         occupationTextField.text = Profile.occupation
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     @IBAction func update(_ sender: UIButton) {
         if let name = nameTextField.text,
            let address = addressTextField.text,

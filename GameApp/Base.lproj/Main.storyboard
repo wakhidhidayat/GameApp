@@ -354,6 +354,12 @@
                                 <rect key="frame" x="0.0" y="207" width="414" height="606"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Games not found, please try another keyword." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Th5-mj-X57">
+                                <rect key="frame" x="20" y="207" width="374" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jvj-Dn-y2m">
                                 <rect key="frame" x="20" y="140" width="374" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -370,9 +376,12 @@
                             <constraint firstItem="obP-N1-Ajg" firstAttribute="centerY" secondItem="4Ja-hE-GcM" secondAttribute="centerY" id="0YY-cT-u9p"/>
                             <constraint firstItem="jvj-Dn-y2m" firstAttribute="leading" secondItem="ioG-rA-RMp" secondAttribute="leading" constant="20" id="6SU-Hj-UgR"/>
                             <constraint firstItem="ioG-rA-RMp" firstAttribute="trailing" secondItem="UxX-aQ-UVY" secondAttribute="trailing" id="9J3-As-aFI"/>
+                            <constraint firstItem="ioG-rA-RMp" firstAttribute="trailing" secondItem="Th5-mj-X57" secondAttribute="trailing" constant="20" id="C6D-LB-jc1"/>
                             <constraint firstItem="UxX-aQ-UVY" firstAttribute="leading" secondItem="ioG-rA-RMp" secondAttribute="leading" id="HNA-mw-Hu0"/>
                             <constraint firstItem="jvj-Dn-y2m" firstAttribute="top" secondItem="ioG-rA-RMp" secondAttribute="top" id="ZLR-NL-bZR"/>
                             <constraint firstItem="ioG-rA-RMp" firstAttribute="trailing" secondItem="jvj-Dn-y2m" secondAttribute="trailing" constant="20" id="fdq-70-HDJ"/>
+                            <constraint firstItem="Th5-mj-X57" firstAttribute="top" secondItem="jvj-Dn-y2m" secondAttribute="bottom" constant="16" id="lMr-7Z-eKX"/>
+                            <constraint firstItem="Th5-mj-X57" firstAttribute="leading" secondItem="ioG-rA-RMp" secondAttribute="leading" constant="20" id="msS-HX-Rcf"/>
                             <constraint firstItem="UxX-aQ-UVY" firstAttribute="bottom" secondItem="ioG-rA-RMp" secondAttribute="bottom" id="nXI-Z7-9GG"/>
                             <constraint firstItem="UxX-aQ-UVY" firstAttribute="top" secondItem="jvj-Dn-y2m" secondAttribute="bottom" constant="16" id="sfa-Z3-gZN"/>
                         </constraints>
@@ -381,6 +390,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="obP-N1-Ajg" id="UFg-2Z-PXM"/>
                         <outlet property="gamesTable" destination="UxX-aQ-UVY" id="DXk-XH-yrs"/>
+                        <outlet property="notFoundLabel" destination="Th5-mj-X57" id="kEz-nU-cjO"/>
                         <outlet property="searchBar" destination="jvj-Dn-y2m" id="laX-xL-tIE"/>
                     </connections>
                 </viewController>
