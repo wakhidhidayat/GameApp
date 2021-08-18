@@ -34,16 +34,10 @@ class DetailGameViewController: UIViewController {
         screenshotTable.dataSource = self
         screenshotTable.delegate = self
         
-        let addToFavoritesButton = UIBarButtonItem(
-            image: UIImage(systemName: "suit.heart"), style: .plain, target: self, action: #selector(addToFavorites))
-        let removeFromFavoritesButton = UIBarButtonItem(
-            image: UIImage(systemName: "suit.heart.fill"),
-            style: .plain, target: self, action: #selector(removeFromFavorites))
-        
         if isInFavorites {
-            self.navigationItem.rightBarButtonItem = removeFromFavoritesButton
+            setButtonRemoveFromFavorites()
         } else {
-            self.navigationItem.rightBarButtonItem = addToFavoritesButton
+            setButtonAddToFavorites()
         }
         
         if let gameId = id {
@@ -122,15 +116,9 @@ class DetailGameViewController: UIViewController {
             Util.formatDate(from: game.released)!,
             "\(game.rating) / 5"
         ) {
-            
+            self.isInFavorites = true
             DispatchQueue.main.async {
-                self.isInFavorites.toggle()
-                self.setButtonBackGround(
-                    view: self.navigationItem.rightBarButtonItem!,
-                    on: UIImage(systemName: "suit.heart.fill")!,
-                    off: UIImage(systemName: "suit.heart")!,
-                    onOffStatus: self.isInFavorites
-                )
+                self.setButtonRemoveFromFavorites()
                 let alert = UIAlertController(
                     title: "Added to Favorites",
                     message: "Game has been added to favorites.",
@@ -145,14 +133,9 @@ class DetailGameViewController: UIViewController {
     @objc private func removeFromFavorites() {
         guard let id = id else { return }
         favoriteProvider.deleteFavorite(id) {
+            self.isInFavorites = false
             DispatchQueue.main.async {
-                self.isInFavorites.toggle()
-                self.setButtonBackGround(
-                    view: self.navigationItem.rightBarButtonItem!,
-                    on: UIImage(systemName: "suit.heart.fill")!,
-                    off: UIImage(systemName: "suit.heart")!,
-                    onOffStatus: self.isInFavorites
-                )
+                self.setButtonAddToFavorites()
                 let alert = UIAlertController(
                     title: "Remove Succeeded",
                     message: "Game has been removed from favorites.",
@@ -164,15 +147,21 @@ class DetailGameViewController: UIViewController {
         }
     }
     
-    private func setButtonBackGround(view: UIBarButtonItem, on: UIImage, off: UIImage, onOffStatus: Bool ) {
-        switch onOffStatus {
-        case true:
-            view.image = UIImage(systemName: "suit.heart.fill")
-        case false:
-            view.image = UIImage(systemName: "suit.heart")
-        }
+    private func setButtonAddToFavorites() {
+        let addToFavoritesButton = UIBarButtonItem(
+            image: UIImage(systemName: "suit.heart"), style: .plain,
+            target: self, action: #selector(self.addToFavorites)
+        )
+        self.navigationItem.rightBarButtonItem = addToFavoritesButton
     }
     
+    private func setButtonRemoveFromFavorites() {
+        let removeFromFavoritesButton = UIBarButtonItem(
+            image: UIImage(systemName: "suit.heart.fill"),
+            style: .plain, target: self, action: #selector(self.removeFromFavorites))
+        
+        self.navigationItem.rightBarButtonItem = removeFromFavoritesButton
+    }
 }
 
 extension DetailGameViewController: UITableViewDataSource {
