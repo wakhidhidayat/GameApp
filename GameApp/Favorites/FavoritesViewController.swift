@@ -11,6 +11,7 @@ class FavoritesViewController: UIViewController {
     
     @IBOutlet weak var favoriteTable: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var emptyLabel: UILabel!
     
     private lazy var favoriteProvider: FavoriteProvider = { return FavoriteProvider() }()
     private var favorites = [Favorite]()
@@ -29,9 +30,15 @@ class FavoritesViewController: UIViewController {
         activityIndicator.startAnimating()
         favoriteProvider.getFavorites { favorites in
             DispatchQueue.main.async {
+                if favorites.isEmpty {
+                    self.emptyLabel.isHidden = false
+                    self.favoriteTable.separatorStyle = .none
+                } else {
+                    self.emptyLabel.isHidden = true
+                    self.favoriteTable.separatorStyle = .singleLine
+                }
                 self.favorites = favorites
                 self.favoriteTable.reloadData()
-                self.favoriteTable.separatorStyle = .singleLine
                 self.activityIndicator.stopAnimating()
             }
         }

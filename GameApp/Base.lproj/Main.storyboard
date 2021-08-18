@@ -410,6 +410,12 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your favorites library is empty." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRY-SG-ivo">
+                                <rect key="frame" x="20" y="140" width="374" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="pb3-3s-orK">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
@@ -418,16 +424,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ApM-IJ-iTP" firstAttribute="leading" secondItem="1p0-KN-jR1" secondAttribute="leading" id="A48-Wi-WQK"/>
+                            <constraint firstItem="wRY-SG-ivo" firstAttribute="top" secondItem="1p0-KN-jR1" secondAttribute="top" id="LFV-Gx-9Wb"/>
                             <constraint firstItem="ApM-IJ-iTP" firstAttribute="trailing" secondItem="1p0-KN-jR1" secondAttribute="trailing" id="RZ4-pl-wad"/>
                             <constraint firstItem="ApM-IJ-iTP" firstAttribute="top" secondItem="1p0-KN-jR1" secondAttribute="top" id="krU-sy-Y23"/>
                             <constraint firstItem="ApM-IJ-iTP" firstAttribute="bottom" secondItem="1p0-KN-jR1" secondAttribute="bottom" id="lfE-Jw-KGv"/>
+                            <constraint firstItem="1p0-KN-jR1" firstAttribute="trailing" secondItem="wRY-SG-ivo" secondAttribute="trailing" constant="20" id="o1i-iM-x0T"/>
                             <constraint firstItem="pb3-3s-orK" firstAttribute="centerY" secondItem="VvP-lg-OIl" secondAttribute="centerY" id="sjN-VX-0ww"/>
+                            <constraint firstItem="wRY-SG-ivo" firstAttribute="leading" secondItem="1p0-KN-jR1" secondAttribute="leading" constant="20" id="uaR-LR-8He"/>
                             <constraint firstItem="pb3-3s-orK" firstAttribute="centerX" secondItem="VvP-lg-OIl" secondAttribute="centerX" id="win-40-XiP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="Xsz-L3-EXd"/>
                     <connections>
                         <outlet property="activityIndicator" destination="pb3-3s-orK" id="X8V-bI-WGO"/>
+                        <outlet property="emptyLabel" destination="wRY-SG-ivo" id="jRr-ub-8Dl"/>
                         <outlet property="favoriteTable" destination="ApM-IJ-iTP" id="1Ni-se-zOC"/>
                     </connections>
                 </viewController>
