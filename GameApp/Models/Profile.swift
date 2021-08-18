@@ -15,7 +15,7 @@ struct Profile {
     
     static var name: String {
         get {
-            return UserDefaults.standard.string(forKey: nameKey) ?? ""
+            return UserDefaults.standard.string(forKey: nameKey) ?? "Wakhid Saiful Hidayat"
         }
         set {
             UserDefaults.standard.set(newValue, forKey: nameKey)
@@ -24,7 +24,7 @@ struct Profile {
     
     static var address: String {
         get {
-            return UserDefaults.standard.string(forKey: addressKey) ?? ""
+            return UserDefaults.standard.string(forKey: addressKey) ?? "Bantul, DIY"
         }
         set {
             UserDefaults.standard.set(newValue, forKey: addressKey)
@@ -33,7 +33,7 @@ struct Profile {
     
     static var occupation: String {
         get {
-            return UserDefaults.standard.string(forKey: occupationKey) ?? ""
+            return UserDefaults.standard.string(forKey: occupationKey) ?? "Mahasiswa"
         }
         set {
             UserDefaults.standard.set(newValue, forKey: occupationKey)
@@ -42,7 +42,7 @@ struct Profile {
     
     static var hobbies: String {
         get {
-            return UserDefaults.standard.string(forKey: hobbiesKey) ?? ""
+            return UserDefaults.standard.string(forKey: hobbiesKey) ?? "Traveling, Coding"
         }
         set {
             UserDefaults.standard.set(newValue, forKey: hobbiesKey)

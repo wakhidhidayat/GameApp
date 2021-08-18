@@ -9,10 +9,10 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var address: UITextField!
-    @IBOutlet weak var hobbies: UITextField!
-    @IBOutlet weak var occupation: UITextField!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var address: UILabel!
+    @IBOutlet weak var hobbies: UILabel!
+    @IBOutlet weak var occupation: UILabel!
     @IBOutlet weak var imageProfile: UIImageView! {
         didSet {
             imageProfile.layer.borderWidth = 1
